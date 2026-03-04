@@ -10,6 +10,16 @@ import Developers from './pages/Developers';
 import Register from './pages/Register';
 import './index.css';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const ContentWrapper = ({ children }) => {
   const location = useLocation();
   const isAbout = location.pathname === '/about';
@@ -54,6 +64,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         {/* Video Overlay Section */}
         <AnimatePresence>
