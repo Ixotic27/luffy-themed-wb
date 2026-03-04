@@ -128,14 +128,15 @@ button {
   }
 
   .nav-left {
-    margin-left: 0;
+    margin-left: auto;
     padding-left: 0;
+    margin-right: 10px;
   }
 
   .hamburger-icon {
-    margin-left: auto;
-    margin-right: 15px;
-    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
   }
 }
 

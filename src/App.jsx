@@ -89,12 +89,6 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="nav-left">
-                  <Link to="/">
-                    <img src="/assets/logo.png" alt="Hack-O-Holic Logo" className="logo" />
-                  </Link>
-                </div>
-
                 {/* Mobile Hamburger Icon */}
                 <div
                   className="hamburger-icon"
@@ -103,6 +97,12 @@ function App() {
                   <div className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></div>
                   <div className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></div>
                   <div className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></div>
+                </div>
+
+                <div className="nav-left">
+                  <Link to="/">
+                    <img src="/assets/logo.png" alt="Hack-O-Holic Logo" className="logo" />
+                  </Link>
                 </div>
 
                 <div className={`nav-right ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
