@@ -84,7 +84,7 @@ button {
 
 @media (max-width: 900px) {
   .hero-video {
-    object-fit: contain;
+    object-fit: fill;
   }
 }
 
