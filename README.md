@@ -1,16 +1,57 @@
-# React + Vite
+# Luffy - Hack-O-Holic 4.0 Frontend & Leaderboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for the Hack-O-Holic 4.0 main website, the leaderboard admin panel, and the backend server.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `/src` - The main React + Vite frontend website (Home, Developers, Events, Bounty Board).
+- `/backend` - The Node.js Express server interfacing with local MongoDB for the Leaderboard.
+- `/leaderboard-admin` - A standalone React + Vite admin dashboard to manage the Bounty Board.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Getting Started
 
-## Expanding the ESLint configuration
+To fully run the project locally, you will need to start three separate servers along with a local instance of MongoDB.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+- Node.js installed on your machine
+- [MongoDB Community Edition](https://www.mongodb.com/try/download/community) installed and running locally on port `27017`
+
+### 1. Start the Backend Server
+The backend handles the database connection, CSV parsing, and API routes.
+```bash
+cd backend
+npm install  # (Only needed the first time)
+npm start
+```
+**Running on:** `http://localhost:5001`
+
+### 2. Start the Leaderboard Admin Panel
+The admin dashboard allows you to upload CSV files, edit team points, and toggle the public leaderboard visibility.
+```bash
+cd leaderboard-admin
+
+# Install dependencies (Only needed the first time)
+npm install  
+
+# Start the admin panel locally
+npm run dev
+```
+**Running on:** `http://localhost:5176`
+
+### 3. Start the Main Website
+The primary frontend application for users.
+```bash
+# In the root (Luffy) directory
+npm install  # (Only needed the first time)
+npm run dev
+```
+**Running on:** `http://localhost:5173`
+
+---
+
+## Features
+- **Main Website:** Implements glassmorphism UI, interactive hover cards, and seamless page transitions.
+- **Admin Dashboard:** Syncs local CSVs directly to MongoDB, allowing quick score updates.
+- **Bounty Board (Leaderboard):** Features pagination (10 teams per page), search functionality, and a pinning feature to highlight specific teams at the bottom of the list. Visibility can be conditionally toggled to show placeholder waiting screens.

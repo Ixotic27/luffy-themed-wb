@@ -105,15 +105,11 @@ function About() {
         <div style={{
             width: '100%',
             minHeight: '100vh',
-            backgroundImage: 'url(/assets/4.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
             position: 'relative',
             paddingBottom: '4rem'
         }}>
             {/* Dark overlay to match the screenshots layout against the bright 4.png background */}
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 0 }}></div>
+            <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(3px)', zIndex: 0 }}></div>
 
             <div className="about-page-wrapper">
                 <div className="about-content-container">

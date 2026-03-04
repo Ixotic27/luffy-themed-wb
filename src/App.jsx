@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Compass, Telescope } from 'lucide-react';
+import { Compass, Telescope, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/About';
+import Leaderboard from './pages/Leaderboard';
+import Events from './pages/Events';
+import Developers from './pages/Developers';
 import './index.css';
 
 const ContentWrapper = ({ children }) => {
   const location = useLocation();
   const isAbout = location.pathname === '/about';
+  const isLeaderboard = location.pathname === '/leaderboard';
+  const isEvents = location.pathname === '/events';
+  const isDevelopers = location.pathname === '/developers';
+
+  let bgClass = 'bg-home';
+  if (isAbout) bgClass = 'bg-about';
+  if (isLeaderboard) bgClass = 'bg-leaderboard';
+  if (isEvents) bgClass = 'bg-events';
+  if (isDevelopers) bgClass = 'bg-developers';
 
   return (
-    <div className={`main-content ${isAbout ? 'bg-about' : 'bg-home'}`}>
+    <div className={`main-content ${bgClass}`}>
       {children}
     </div>
   );
@@ -94,9 +106,9 @@ function App() {
                   <ul className="nav-links">
                     <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
                     <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link></li>
-                    <li><a href="/#mission" onClick={() => setIsMobileMenuOpen(false)}>Mission</a></li>
-                    <li><a href="/#prizes" onClick={() => setIsMobileMenuOpen(false)}>Prizes</a></li>
-                    <li><a href="/#schedule" onClick={() => setIsMobileMenuOpen(false)}>Schedule</a></li>
+                    <li><Link to="/events" onClick={() => setIsMobileMenuOpen(false)}>Events</Link></li>
+                    <li><Link to="/#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</Link></li>
+                    <li><Link to="/leaderboard" onClick={() => setIsMobileMenuOpen(false)}>Leaderboard</Link></li>
                   </ul>
                   <button className="register-btn" onClick={() => setIsMobileMenuOpen(false)}>Register</button>
                 </div>
@@ -118,35 +130,66 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/developers" element={<Developers />} />
                 </Routes>
 
                 {/* Footer */}
-                <footer className="footer" style={{ width: '100%' }}>
-                  {/* Register Button */}
-                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-                    <a
-                      href="https://github.com/Ixotic27?tab=overview&from=2026-03-01&to=2026-03-03"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ display: 'inline-block', transition: 'transform 0.3s ease', cursor: 'pointer', backgroundColor: '#ffffff', padding: '0.4rem', borderRadius: '8px', textDecoration: 'none' }}
-                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    >
-                      <div style={{ border: '2px solid #1e40af', padding: '0.2rem', borderRadius: '4px', backgroundColor: '#ffffff' }}>
-                        <img src="/assets/register.png" alt="Register Now" style={{ width: '100%', maxWidth: '350px', height: 'auto', display: 'block' }} />
+                <footer className="footer">
+                  <div className="footer-content">
+                    {/* Left Column: Logo & Description */}
+                    <div className="footer-col left">
+                      <div className="footer-logo">Hack-O-Holic <span>4.0</span></div>
+                      <p className="footer-desc">
+                        Join us for the most innovative hackathon of the year. Build, collaborate, and transform your ideas into reality.
+                      </p>
+
+                      <div className="subscribe-row">
+                        <span>Don't Forget to Subscribe:</span>
+                        <div className="social-icons">
+                          <a href="#" className="social-icon" aria-label="Instagram">
+                            <Instagram size={20} />
+                          </a>
+                          <a href="#" className="social-icon" aria-label="LinkedIn">
+                            <Linkedin size={20} />
+                          </a>
+                        </div>
                       </div>
-                    </a>
+                    </div>
+
+                    {/* Center Column: Flag & Link */}
+                    <div className="footer-col center">
+                      <img src="/assets/flag.png" alt="Pirate Flag" className="footer-flag" />
+                      <div className="footer-links">
+                        <Link to="/developers">Know Your Developers</Link>
+                      </div>
+                    </div>
+
+                    {/* Right Column: Contact Info — left-aligned */}
+                    <div className="footer-col contact-col">
+                      <h3 className="contact-title">Contact Us</h3>
+
+                      <div className="contact-item">
+                        <Mail size={20} />
+                        <span>Hackaholic3.0.codev@gmail.com</span>
+                      </div>
+
+                      <div className="contact-item phones">
+                        <Phone size={20} />
+                        <span>+91 7464959260 &nbsp; +91 7818874934 &nbsp; +91 8191013531</span>
+                      </div>
+
+                      <div className="contact-item">
+                        <MapPin size={20} />
+                        <span>Graphic Era Hill University, Dehradun</span>
+                      </div>
+                    </div>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                    <img src="/assets/flag.png" alt="Pirate Flag" style={{ height: '80px', objectFit: 'contain' }} />
-                  </div>
-                  <div className="footer-links">
-                    <a href="#faqs">FAQs</a>
-                    <a href="#code-of-conduct">Code of Conduct</a>
-                    <a href="#contact">Contact</a>
-                  </div>
-                  <div className="footer-copy">
-                    © 2024 Hack-O-Holic 4.0 | All rights reserved. A One Piece Themed Hackathon.
+
+                  {/* Bottom copyright bar */}
+                  <div className="footer-copyright">
+                    © 2024 Hack-O-Holic 4.0 | All rights reserved. &nbsp;·&nbsp; A One Piece Themed Hackathon.
                   </div>
                 </footer>
 

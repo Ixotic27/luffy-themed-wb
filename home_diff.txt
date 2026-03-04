@@ -1,0 +1,431 @@
+﻿diff --git a/src/pages/Home.jsx b/src/pages/Home.jsx
+index a2fdd03..2af222d 100644
+--- a/src/pages/Home.jsx
++++ b/src/pages/Home.jsx
+@@ -1,7 +1,23 @@
+ import React, { useState, useEffect } from 'react';
+ import { motion, AnimatePresence } from 'framer-motion';
++import { useLocation } from 'react-router-dom';
++import { Clock, Users, GraduationCap, MapPin, Anchor, Award } from 'lucide-react';
+ 
+ function Home() {
++    const location = useLocation();
++
++    // Scroll to section if hash exists
++    useEffect(() => {
++        if (location.hash) {
++            let elem = document.getElementById(location.hash.slice(1));
++            if (elem) {
++                setTimeout(() => elem.scrollIntoView({ behavior: 'smooth' }), 100);
++            }
++        } else {
++            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
++        }
++    }, [location]);
++
+     // Countdown State
+     const [timeLeft, setTimeLeft] = useState({
+         days: '00', hours: '00', minutes: '00', seconds: '00'
+@@ -35,6 +51,30 @@ function Home() {
+         return () => clearInterval(slideInterval);
+     }, [carouselImages.length]);
+ 
++    // Gallery State (6.png section)
++    const [galleryIndex, setGalleryIndex] = useState(0);
++    const galleryImages = [
++        '/assets/gallery pictures/g1.jpeg',
++        '/assets/gallery pictures/g2.jpeg',
++        '/assets/gallery pictures/g3.jpeg',
++        '/assets/gallery pictures/g4.jpeg',
++        '/assets/gallery pictures/g5.jpeg',
++        '/assets/gallery pictures/g6.jpeg',
++        '/assets/gallery pictures/g7.jpeg',
++        '/assets/gallery pictures/g8.jpeg',
++        '/assets/gallery pictures/g9.jpeg',
++        '/assets/gallery pictures/g10.jpeg',
++        '/assets/gallery pictures/g11.jpeg',
++        '/assets/gallery pictures/g12.jpeg'
++    ];
++
++    useEffect(() => {
++        const galleryInterval = setInterval(() => {
++            setGalleryIndex((prev) => (prev + 1) % galleryImages.length);
++        }, 3000); // 3 seconds per slide
++        return () => clearInterval(galleryInterval);
++    }, [galleryImages.length]);
++
+     useEffect(() => {
+         const targetDate = new Date('March 28, 2026 00:00:00').getTime();
+ 
+@@ -66,7 +106,7 @@ function Home() {
+     return (
+         <>
+             {/* Intro Section */}
+-            <section id="home" className="about-section slide-up" style={{ marginTop: '2rem' }}>
++            <section id="home" className="about-section slide-up" style={{ marginTop: '2rem', position: 'relative' }}>
+                 <div className="about-text" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                     <h1 className="about-title" style={{ fontSize: '5rem', color: '#ffffff', marginBottom: '0' }}>HACK-<span className="op-font">O</span>-HOLIC 4.0:</h1>
+                     <h2 className="about-title-secondary" style={{ fontSize: '4rem', color: '#ffffff', borderBottom: 'none', paddingBottom: 0 }}>P<span className="op-font">I</span>RATE K<span className="op-font">I</span>NG'S CHALLENGE</h2>
+@@ -83,13 +123,16 @@ function Home() {
+                         <div className="panel-caption">Setting sail on the digital Grand Line</div>
+                     </div>
+                 </div>
++
++                {/* Bottom fade ΓÇö blends into countdown/2.jpg section */}
++                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '160px', background: 'linear-gradient(to top, rgba(15,23,42,1) 0%, transparent 100%)', zIndex: 5, pointerEvents: 'none' }}></div>
+             </section>
+ 
+             {/* Countdown & Description Section */}
+             <section id="mission" className="countdown-section">
+                 <h2 className="about-title" style={{ fontSize: '4rem', color: '#ffffff', marginBottom: '2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>CHALLENGE BEGINS IN:</h2>
+ 
+-                <div className="custom-countdown-container">
++                <div className="custom-countdown-container" style={{ flexWrap: 'nowrap', overflowX: 'auto' }}>
+                     <div className="countdown-box">
+                         <span className="box-digit">{timeLeft.days}</span>
+                         <span className="box-label">DAYS</span>
+@@ -111,8 +154,22 @@ function Home() {
+                     </div>
+                 </div>
+ 
+-                <div className="description-container" style={{ maxWidth: '800px', marginTop: '4rem' }}>
+-                    <img src="/assets/description png.png" alt="Hackathon Description Details" className="description-img" />
++                <div className="description-container" style={{ maxWidth: '800px', marginTop: 'calc(4rem - 20px)' }}>
++                    <img src="/assets/description.png" alt="Hackathon Description Details" className="description-img" />
++                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
++                        <a
++                            href="https://github.com/Ixotic27?tab=overview&from=2026-03-01&to=2026-03-03"
++                            target="_blank"
++                            rel="noopener noreferrer"
++                            style={{ display: 'inline-block', transition: 'transform 0.3s ease', cursor: 'pointer', backgroundColor: '#ffffff', padding: '0.4rem', borderRadius: '8px', textDecoration: 'none' }}
++                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
++                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
++                        >
++                            <div style={{ border: '2px solid #1e40af', padding: '0.2rem', borderRadius: '4px', backgroundColor: '#ffffff' }}>
++                                <img src="/assets/register.png" alt="Register Now" style={{ width: '100%', maxWidth: '350px', height: 'auto', display: 'block' }} />
++                            </div>
++                        </a>
++                    </div>
+                 </div>
+             </section>
+ 
+@@ -143,7 +200,7 @@ function Home() {
+                             </div>
+                             <p style={{ fontSize: '1.2rem', color: '#fbbf24', fontWeight: 'bold', marginBottom: '4rem', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
+                                 Only 250 teams will be registered initially, and only 110 exceptional crews will be shortlisted for the finale.<br />
+-                                Exclusive to Graphic Era Hill University and Deemed University!
++                                Exclusive to Graphic Era Hill University!
+                             </p>
+ 
+                             {/* Stats Row */}
+@@ -211,6 +268,10 @@ function Home() {
+                 <div className="event-details-bg">
+                     <img src="/assets/3.jpeg" alt="Going Merry Ship" className="event-details-ship event-ship-desktop" />
+                     <img src="/assets/mobile3.png" alt="Going Merry Ship Mobile" className="event-details-ship event-ship-mobile" />
++                    {/* Top fade ΓÇö blends from dark above */}
++                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '180px', background: 'linear-gradient(to bottom, rgba(21,24,28,1) 0%, transparent 100%)', zIndex: 5, pointerEvents: 'none' }}></div>
++                    {/* Bottom fade ΓÇö blends into 4.png section */}
++                    <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '180px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 5, pointerEvents: 'none' }}></div>
+                 </div>
+                 <div className="event-details-content">
+                     <h2 className="event-details-title"><span className="op-font">E</span>vent <span className="op-font">D</span>etails</h2>
+@@ -263,32 +324,32 @@ function Home() {
+                     {/* Mobile Cards - Text based */}
+                     <div className="event-cards-grid mobile-cards">
+                         <div className="event-card cyan">
+-                            <span className="event-card-icon">≡ƒÅ┤ΓÇìΓÿá∩╕Å</span>
++                            <span className="event-card-icon"><Clock size={24} color="#00e5ff" /></span>
+                             <span className="event-card-label">FORMAT</span>
+                             <span className="event-card-value">24 Hours ┬╖ Offline ΓÇö On Campus</span>
+                         </div>
+                         <div className="event-card cyan">
+-                            <span className="event-card-icon">≡ƒæÑ</span>
++                            <span className="event-card-icon"><Users size={24} color="#00e5ff" /></span>
+                             <span className="event-card-label">TEAM SIZE</span>
+                             <span className="event-card-value">2 ΓÇô 4 Members</span>
+                         </div>
+                         <div className="event-card cyan">
+-                            <span className="event-card-icon">≡ƒÄô</span>
++                            <span className="event-card-icon"><GraduationCap size={24} color="#00e5ff" /></span>
+                             <span className="event-card-label">ELIGIBILITY</span>
+                             <span className="event-card-value">University Students</span>
+                         </div>
+                         <div className="event-card gold">
+-                            <span className="event-card-icon">≡ƒôì</span>
++                            <span className="event-card-icon"><MapPin size={24} color="#ffb300" /></span>
+                             <span className="event-card-label">VENUE</span>
+                             <span className="event-card-value">Graphic Era Hill University, Dehradun</span>
+                         </div>
+                         <div className="event-card gold">
+-                            <span className="event-card-icon">ΓÜô</span>
++                            <span className="event-card-icon"><Anchor size={24} color="#ffb300" /></span>
+                             <span className="event-card-label">MAX REGISTRATIONS</span>
+                             <span className="event-card-value">250 Teams</span>
+                         </div>
+                         <div className="event-card gold">
+-                            <span className="event-card-icon">≡ƒöÑ</span>
++                            <span className="event-card-icon"><Award size={24} color="#ffb300" /></span>
+                             <span className="event-card-label">FINALE ENTRIES</span>
+                             <span className="event-card-value">110 / 250</span>
+                         </div>
+@@ -297,7 +358,7 @@ function Home() {
+             </section>
+ 
+             {/* New Section for 4.png - Natural aspect ratio with Overlay Text and Background effect */}
+-            <section className="new-section-4" style={{
++            <section id="road-to-laughtale" className="new-section-4" style={{
+                 width: '100%',
+                 position: 'relative',
+                 backgroundColor: '#000',
+@@ -309,8 +370,12 @@ function Home() {
+                 alignItems: 'center',
+                 padding: '5rem 1rem 6rem 1rem'
+             }}>
+-                {/* Dark overlay to match the 'About page' glass effect layout against the bright 4.png background */}
++                {/* Dark overlay */}
+                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 0 }}></div>
++                {/* Top fade ΓÇö blends from 3.jpeg section */}
++                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
++                {/* Bottom fade ΓÇö blends into nikka.jpeg */}
++                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
+ 
+                 <div style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                     <h1 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#ffb300', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '4rem' }}>
+@@ -368,7 +433,7 @@ function Home() {
+                 </div>
+ 
+                 {/* Smooth Fade Transition blending the bottom of the map into the next section */}
+-                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', zIndex: 1, pointerEvents: 'none' }}></div>
++                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '250px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
+             </section>
+ 
+             {/* New Section for nikka.jpeg - Background is absolute, content is in-flow */}
+@@ -380,8 +445,11 @@ function Home() {
+                 </picture>
+                 <div className="nikka-bg-overlay"></div>
+ 
+-                {/* Smooth top fade from previous section */}
+-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to bottom, rgba(0,0,0,0.9), transparent)', zIndex: 2, pointerEvents: 'none' }}></div>
++                {/* Smooth top fade from previous section ΓÇö reduced to avoid heavy black bleed */}
++                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '120px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
++
++                {/* Smooth bottom fade into the next section */}
++                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
+ 
+                 {/* In-flow content ΓÇö grows the section naturally */}
+                 <div className="nikka-content">
+@@ -462,37 +530,192 @@ function Home() {
+                 ];
+ 
+                 return (
+-                    <section className="manga-mosaic-section">
+-                        <div className="manga-mosaic-overlay" />
+-                        <div className="manga-mosaic-inner">
+-                            {/* Row 1 */}
+-                            <div className="manga-row">
+-                                <div className="manga-track">
+-                                    {[...row1, ...row1, ...row1].map((src, i) => (
+-                                        <img key={`r1-${i}`} src={src} alt="" className="manga-panel" />
++                    <>
++                        {/* ===== 6.png Gallery Section (Matches structure of mobile 4/nikka) ===== */}
++                        <section id="gallery" className="nikka-section-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '12rem 1rem 4rem 1rem' }}>
++                            {/* Background image + glass overlay ΓÇö absolute behind everything */}
++                            <picture className="nikka-bg-picture">
++                                <source media="(max-width: 900px)" srcSet="/assets/6.png" />
++                                <img src="/assets/6.png" alt="" aria-hidden="true" className="nikka-bg-img" style={{ objectPosition: 'center -100px' }} />
++                            </picture>
++
++                            {/* Smooth top fade transition bridging from the previous section into 6.png */}
++                            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '300px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
++
++                            {/* Glass Effect Overlay */}
++                            <div style={{
++                                position: 'absolute',
++                                top: 0, left: 0, width: '100%', height: '100%',
++                                backgroundColor: 'rgba(15, 23, 42, 0.4)',
++                                backdropFilter: 'blur(8px)',
++                                WebkitBackdropFilter: 'blur(8px)',
++                                zIndex: 1
++                            }}></div>
++
++                            <div style={{ position: 'relative', zIndex: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
++                                <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#ffb300', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '1rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
++                                    P<span className="op-font">A</span>ST B<span className="op-font">O</span>UNTIES
++                                </h2>
++                                <p style={{ color: '#fff', fontSize: '1.2rem', fontFamily: "'Inter', sans-serif", marginBottom: '3rem', textAlign: 'center', textShadow: '1px 1px 2px #000' }}>
++                                    Memories from previous Hack-O-Holic editions
++                                </p>
++
++                                {/* 12-Picture Gallery View */}
++                                <div style={{
++                                    width: '100%',
++                                    maxWidth: '800px',
++                                    height: '400px',
++                                    position: 'relative',
++                                    borderRadius: '16px',
++                                    overflow: 'hidden',
++                                    border: '2px solid rgba(255,179,0,0.3)',
++                                    boxShadow: '0 20px 40px rgba(0,0,0,0.6)'
++                                }}>
++                                    <AnimatePresence mode="popLayout">
++                                        <motion.img
++                                            key={galleryIndex}
++                                            src={galleryImages[galleryIndex]}
++                                            initial={{ x: 300, opacity: 0 }}
++                                            animate={{ x: 0, opacity: 1 }}
++                                            exit={{ x: -300, opacity: 0 }}
++                                            transition={{ type: "spring", stiffness: 300, damping: 30, opacity: { duration: 0.2 } }}
++                                            style={{
++                                                position: 'absolute',
++                                                top: 0, left: 0,
++                                                width: '100%',
++                                                height: '100%',
++                                                objectFit: 'cover'
++                                            }}
++                                            alt={`Gallery Image ${galleryIndex + 1}`}
++                                        />
++                                    </AnimatePresence>
++                                </div>
++                            </div>
++                        </section>
++
++                        {/* ===== FAQ Window Section ===== */}
++                        <section id="faqs" style={{
++                            width: '100%',
++                            backgroundColor: '#0d1117',
++                            padding: '6rem 2rem',
++                            position: 'relative',
++                            zIndex: 10,
++                            display: 'flex',
++                            flexDirection: 'column',
++                            alignItems: 'center'
++                        }}>
++                            <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
++                                <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#d4a843', textShadow: '2px 2px 4px rgba(0,0,0,0.5)', marginBottom: '4rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
++                                    <span className="op-font">F</span>REQ<span className="op-font">U</span>ENTLY <span className="op-font">A</span>SKED Q<span className="op-font">U</span>ESTIONS
++                                </h2>
++
++                                <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
++                                    {[
++                                        { q: "What is Hack-O-Holic 4.0?", a: "A 24-hour One Piece-themed hackathon bringing together developers and innovators to build incredible projects." },
++                                        { q: "Who can participate?", a: "University students! You can participate in teams of 2 to 4 members." },
++                                        { q: "Is it an online or offline event?", a: "It is a completely offline, on-campus event in Graphic Era Hill University, Dehradun." },
++                                        { q: "What should I bring?", a: "Bring your laptop, charger, student ID, any hardware you might need, and your adventurous pirate spirit!" }
++                                    ].map((faq, i) => (
++                                        <div key={i} style={{
++                                            background: 'rgba(255, 255, 255, 0.03)',
++                                            border: '1px solid rgba(255, 255, 255, 0.1)',
++                                            borderRadius: '12px',
++                                            padding: '1.5rem 2rem',
++                                            transition: 'transform 0.3s ease, background 0.3s ease',
++                                            cursor: 'pointer'
++                                        }}
++                                            onMouseEnter={(e) => {
++                                                e.currentTarget.style.transform = 'translateY(-2px)';
++                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
++                                            }}
++                                            onMouseLeave={(e) => {
++                                                e.currentTarget.style.transform = 'none';
++                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
++                                            }}>
++                                            <h3 style={{ color: '#fff', fontSize: '1.25rem', marginBottom: '0.75rem', fontFamily: "'Inter', sans-serif", fontWeight: '600' }}>
++                                                <span style={{ color: '#ffb300', marginRight: '0.5rem' }}>Q.</span>{faq.q}
++                                            </h3>
++                                            <p style={{ color: '#9ca3af', fontSize: '1rem', lineHeight: '1.6', fontFamily: "'Inter', sans-serif" }}>
++                                                {faq.a}
++                                            </p>
++                                        </div>
+                                     ))}
+                                 </div>
+                             </div>
+ 
+-                            {/* Row 2 */}
+-                            <div className="manga-row">
+-                                <div className="manga-track manga-track-fast">
+-                                    {[...row2, ...row2, ...row2].map((src, i) => (
+-                                        <img key={`r2-${i}`} src={src} alt="" className="manga-panel" />
+-                                    ))}
++                            {/* Luffy peeking from the right middle */}
++                            <img
++                                src="/assets/luffy_peeking.png"
++                                alt="Luffy Peeking"
++                                className="luffy-faq-peek"
++                                style={{
++                                    position: 'absolute',
++                                    top: '50%',
++                                    right: '1.5rem',
++                                    transform: 'translateY(-50%)',
++                                    objectFit: 'contain',
++                                    zIndex: 20,
++                                    pointerEvents: 'none',
++                                    filter: 'drop-shadow(0 0 12px rgba(0,0,0,0.6))'
++                                }}
++                            />
++                        </section>
++
++                        <section className="manga-mosaic-section">
++                            <div className="manga-mosaic-overlay">
++                                {/* Inner Flex Container for Overlay UI */}
++                                <div className="manga-mosaicui">
++                                    {/* Row 1: skull icon + text */}
++                                    <div className="manga-mosaicui-row1" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
++                                        <img src="/assets/strawhat skull.png" alt="Strawhat Skull" className="manga-skull" style={{ marginBottom: '1rem' }} />
++                                        <span style={{ fontSize: '2.5rem', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '4px', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>ONE PIECE</span>
++                                        <div className="manga-mosaic-text-wrapper" style={{ marginTop: '0.5rem' }}>
++                                            <p className='manga-mosaicui-desc' style={{ textAlign: 'center' }}>want to join the exciting adventure with us</p>
++                                        </div>
++                                    </div>
++
++                                    {/* Row 2: register button, centered */}
++                                    <div className="manga-mosaicui-row2">
++                                        <button className='manga-mosaicui-btn'>
++                                            <img src="/assets/luffy hat.png" alt="Luffy Hat" style={{ background: 'transparent' }} />
++                                            <span>Register Now</span>
++                                            <i>&gt;</i>
++                                        </button>
++                                    </div>
++
+                                 </div>
+                             </div>
+ 
+-                            {/* Row 3 */}
+-                            <div className="manga-row">
+-                                <div className="manga-track manga-track-slow">
+-                                    {[...row3, ...row3, ...row3].map((src, i) => (
+-                                        <img key={`r3-${i}`} src={src} alt="" className="manga-panel" />
+-                                    ))}
++                            <div className="manga-mosaic-inner">
++                                {/* Row 1 */}
++                                <div className="manga-row">
++                                    <div className="manga-track">
++                                        {[...row1, ...row1, ...row1].map((src, i) => (
++                                            <img key={`r1-${i}`} src={src} alt="" className="manga-panel" />
++                                        ))}
++                                    </div>
++                                </div>
++
++                                {/* Row 2 */}
++                                <div className="manga-row">
++                                    <div className="manga-track manga-track-fast">
++                                        {[...row2, ...row2, ...row2].map((src, i) => (
++                                            <img key={`r2-${i}`} src={src} alt="" className="manga-panel" />
++                                        ))}
++                                    </div>
++                                </div>
++
++                                {/* Row 3 */}
++                                <div className="manga-row">
++                                    <div className="manga-track manga-track-slow">
++                                        {[...row3, ...row3, ...row3].map((src, i) => (
++                                            <img key={`r3-${i}`} src={src} alt="" className="manga-panel" />
++                                        ))}
++                                    </div>
+                                 </div>
+                             </div>
+-                        </div>
+-                    </section>
++                        </section>
++                    </>
+                 );
+             })()}
+         </>
