@@ -549,10 +549,10 @@ function Home() {
 
                             <div style={{ position: 'relative', zIndex: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#ffb300', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '1rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
-                                    P<span className="op-font">A</span>ST B<span className="op-font">O</span>UNTIES
+                                    THE CR<span className="op-font">E</span>W'S J<span className="op-font">O</span>URNAL
                                 </h2>
                                 <p style={{ color: '#fff', fontSize: '1.2rem', fontFamily: "'Inter', sans-serif", marginBottom: '3rem', textAlign: 'center', textShadow: '1px 1px 2px #000' }}>
-                                    Memories from previous Hack-O-Holic editions
+                                    Reliving the legendary voyages of past Hack-O-Holic crews
                                 </p>
 
                                 {/* 12-Picture Gallery View */}

@@ -152,10 +152,10 @@ function App() {
                       <div className="subscribe-row">
                         <span>Don't Forget to Subscribe:</span>
                         <div className="social-icons">
-                          <a href="#" className="social-icon" aria-label="Instagram">
+                          <a href="https://www.instagram.com/codev.gehu" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
                             <Instagram size={20} />
                           </a>
-                          <a href="#" className="social-icon" aria-label="LinkedIn">
+                          <a href="https://www.linkedin.com/company/co-dev-club/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
                             <Linkedin size={20} />
                           </a>
                         </div>
@@ -176,12 +176,12 @@ function App() {
 
                       <div className="contact-item">
                         <Mail size={20} />
-                        <span>Hackaholic3.0.codev@gmail.com</span>
+                        <span>Hackaholic4.0.codev@gmail.com</span>
                       </div>
 
                       <div className="contact-item phones">
                         <Phone size={20} />
-                        <span>+91 7464959260 &nbsp; +91 7818874934 &nbsp; +91 8191013531</span>
+                        <span>+91 7464959260 &nbsp; +91 7818874934<br />+91 8191013531</span>
                       </div>
 
                       <div className="contact-item">
@@ -193,7 +193,7 @@ function App() {
 
                   {/* Bottom copyright bar */}
                   <div className="footer-copyright">
-                    © 2024 Hack-O-Holic 4.0 | All rights reserved. &nbsp;·&nbsp; A One Piece Themed Hackathon.
+                    © 2026 Hack-O-Holic 4.0 | All rights reserved. &nbsp;·&nbsp; A One Piece Themed Hackathon.
                   </div>
                 </footer>
 
