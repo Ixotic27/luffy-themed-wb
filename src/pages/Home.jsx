@@ -119,7 +119,7 @@ function Home() {
 
                 <div className="about-image">
                     <div className="pirate-manga-panel">
-                        <img src="/assets/luffy second.png" alt="Pirate Ship Manga Panel" style={{ filter: 'grayscale(100%)', mixBlendMode: 'multiply' }} />
+                        <img src="/assets/luffy thumbs up.png" alt="Luffy Thumbs Up" />
                         <div className="panel-caption">Setting sail on the digital Grand Line</div>
                     </div>
                 </div>
