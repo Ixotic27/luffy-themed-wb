@@ -64,11 +64,7 @@ button {
 /* Video Overlay Styles */
 .video-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh;
-  /* Use dynamic viewport height for mobile */
+  inset: 0;
   z-index: 1000;
   background-color: var(--bg-darker);
   display: flex;
@@ -91,8 +87,7 @@ button {
 
 .skip-btn {
   position: absolute;
-  bottom: clamp(2rem, 5vh, 4rem);
-  /* Responsive bottom positioning */
+  bottom: 2rem;
   right: 2rem;
   background: rgba(201, 42, 42, 0.8);
   color: white;
