@@ -9,6 +9,7 @@ import Events from './pages/Events';
 import Developers from './pages/Developers';
 import Register from './pages/Register';
 import Admin from './pages/Admin';
+import TeamsSelected from './pages/TeamsSelected';
 import './index.css';
 
 const ScrollToTop = () => {
@@ -28,6 +29,7 @@ const ContentWrapper = ({ children }) => {
   const isEvents = location.pathname === '/events';
   const isDevelopers = location.pathname === '/developers';
   const isRegister = location.pathname === '/register';
+  const isTeamsSelected = location.pathname === '/teams-selected';
 
   let bgClass = 'bg-home';
   if (isAbout) bgClass = 'bg-about';
@@ -35,6 +37,7 @@ const ContentWrapper = ({ children }) => {
   if (isEvents) bgClass = 'bg-events';
   if (isDevelopers) bgClass = 'bg-developers';
   if (isRegister) bgClass = 'bg-home'; // Reuse home background
+  if (isTeamsSelected) bgClass = 'bg-home'; // Reuse home background
 
   return (
     <div className={`main-content ${bgClass}`}>
@@ -124,6 +127,7 @@ function App() {
                     <li><Link to="/events" onClick={() => setIsMobileMenuOpen(false)}>Events</Link></li>
                     <li><Link to="/#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</Link></li>
                     <li><Link to="/leaderboard" onClick={() => setIsMobileMenuOpen(false)}>Leaderboard</Link></li>
+                    <li><Link to="/teams-selected" onClick={() => setIsMobileMenuOpen(false)}>Selected Crews</Link></li>
                   </ul>
                   <Link to="/register" className="register-btn" onClick={() => setIsMobileMenuOpen(false)}>Register</Link>
                 </div>
@@ -150,6 +154,7 @@ function App() {
                   <Route path="/developers" element={<Developers />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/admin" element={<Admin />} />
+                  <Route path="/teams-selected" element={<TeamsSelected />} />
                 </Routes>
 
                 {/* Footer */}
