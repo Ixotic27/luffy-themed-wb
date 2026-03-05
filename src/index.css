@@ -2610,3 +2610,8 @@ button {
     max-height: 350px;
   }
 }
+@media (max-width: 900px) {
+  body * {
+    background-attachment: scroll !important;
+  }
+}

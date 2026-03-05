@@ -229,7 +229,7 @@ const Leaderboard = () => {
                                 key={team._id}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.05 }}
+                                
                                 style={{
                                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                                     padding: '15px 25px', borderRadius: '15px',
