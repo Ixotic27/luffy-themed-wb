@@ -12,6 +12,7 @@ const Leaderboard = () => {
     const [pinnedTeamId, setPinnedTeamId] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [viewMode, setViewMode] = useState('list'); // 'list' or 'grid'
+    const [isLoading, setIsLoading] = useState(true);
     const itemsPerPage = 10;
 
     useEffect(() => {
@@ -21,8 +22,12 @@ const Leaderboard = () => {
     }, []);
 
     useEffect(() => {
-        fetchVisibility();
-        fetchTeams();
+        const fetchInitialData = async () => {
+            setIsLoading(true);
+            await Promise.all([fetchVisibility(), fetchTeams()]);
+            setIsLoading(false);
+        };
+        fetchInitialData();
 
         // Auto-poll visibility and teams every 5 seconds
         const interval = setInterval(() => {
@@ -69,6 +74,26 @@ const Leaderboard = () => {
     const togglePin = (id) => {
         setPinnedTeamId(prev => prev === id ? null : id);
     };
+
+    if (isLoading) {
+        return (
+            <div style={{
+                position: 'fixed', top: 0, left: 0, width: '100%', minHeight: '100vh',
+                zIndex: 99, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+                backgroundColor: '#0a0a0f', backgroundImage: 'radial-gradient(circle at center, rgba(200, 42, 42, 0.1) 0%, transparent 60%)'
+            }}>
+                <div style={{
+                    width: '60px', height: '60px', border: '5px solid rgba(255,179,0,0.2)',
+                    borderTopColor: '#ffb300', borderRadius: '50%', animation: 'spin 1s linear infinite',
+                    boxShadow: '0 0 15px rgba(255,179,0,0.3)'
+                }}></div>
+                <h2 style={{ marginTop: '20px', color: '#ffb300', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '4px', textShadow: '0 0 10px rgba(255,179,0,0.5)' }}>
+                    FETCHING BOUNTIES...
+                </h2>
+                <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
+            </div>
+        );
+    }
 
     if (!visibility) {
         return (
@@ -229,7 +254,7 @@ const Leaderboard = () => {
                                 key={team._id}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                
+
                                 style={{
                                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                                     padding: '15px 25px', borderRadius: '15px',

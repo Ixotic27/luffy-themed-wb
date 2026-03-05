@@ -39,14 +39,13 @@ const teamMemberPairs = [
     ],
     [
         { id: 7, name: "Shubhangi", role: "Designing Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731231/Team/Shubhangi_Kumari.jpg" },
-        { id: 12, name: "Satendra Negi", role: "Advisor", img: "https://ui-avatars.com/api/?name=Satendra+Negi&background=a855f7&color=fff&size=300" }
+        { id: 8, name: "Shivani", role: "Management Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731231/Team/Shivani_negi.jpg" }
     ],
     [
-        { id: 8, name: "Shivani", role: "Management Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731231/Team/Shivani_negi.jpg" },
-        { id: 9, name: "Akarshan", role: "Management Co-Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Akarshan_BTech.jpg.jpg" }
+        { id: 9, name: "Akarshan", role: "Management Co-Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Akarshan_BTech.jpg.jpg" },
+        { id: 10, name: "Himanshu", role: "Technical Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Himanshu_rawat.jpg.jpg" }
     ],
     [
-        { id: 10, name: "Himanshu", role: "Technical Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Himanshu_rawat.jpg.jpg" },
         { id: 11, name: "Angad", role: "Technical Co-Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731232/Team/Angad.jpg" }
     ]
 ];

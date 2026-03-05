@@ -237,8 +237,15 @@ function Home() {
                         <div className="carousel-wrapper">
                             <div className="carousel-container" style={{ position: 'relative', width: '100%', aspectRatio: '16/9', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '5px solid #c92a2a', boxShadow: '0 0 20px rgba(201, 42, 42, 0.4)', borderRadius: '8px', overflow: 'hidden', backgroundColor: '#000' }}>
 
+                                {/* Hidden Preload Images to Prevent Glitching */}
+                                <div style={{ display: 'none' }}>
+                                    {carouselImages.map((src, idx) => (
+                                        <img key={`preload-${idx}`} src={src} priority="high" rel="preload" as="image" />
+                                    ))}
+                                </div>
+
                                 {/* The Background/Current Image */}
-                                <AnimatePresence>
+                                <AnimatePresence mode="wait">
                                     <motion.img
                                         key={currentImageIndex}
                                         src={carouselImages[currentImageIndex]}
@@ -246,7 +253,7 @@ function Home() {
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.6, ease: "easeInOut" }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
                                         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }}
                                     />
                                 </AnimatePresence>
