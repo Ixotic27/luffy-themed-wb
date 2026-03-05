@@ -37,7 +37,7 @@ const ContentWrapper = ({ children }) => {
   if (isEvents) bgClass = 'bg-events';
   if (isDevelopers) bgClass = 'bg-developers';
   if (isRegister) bgClass = 'bg-home'; // Reuse home background
-  if (isTeamsSelected) bgClass = 'bg-home'; // Reuse home background
+  if (isTeamsSelected) bgClass = 'bg-leaderboard'; // Matched with Leaderboard request
 
   return (
     <div className={`main-content ${bgClass}`}>
