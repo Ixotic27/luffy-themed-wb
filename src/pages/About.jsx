@@ -26,28 +26,28 @@ const guides = [
 
 const teamMemberPairs = [
     [
-        { id: 1, name: "Deepali", role: "President", img: "https://ui-avatars.com/api/?name=Deepali&background=0f172a&color=fff&size=300" },
-        { id: 2, name: "Shivang", role: "Vice President", img: "https://ui-avatars.com/api/?name=Shivang&background=0f172a&color=fff&size=300" }
+        { id: 1, name: "Deepali", role: "President", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731229/Team/Deepali.png" },
+        { id: 2, name: "Shivang", role: "Vice President", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731242/Team/Shivang_jagwan.jpg" }
     ],
     [
-        { id: 3, name: "Tushar", role: "General Secretary", img: "https://ui-avatars.com/api/?name=Tushar&background=0f172a&color=fff&size=300" },
-        { id: 4, name: "Sonali", role: "Finance Head", img: "https://ui-avatars.com/api/?name=Sonali&background=0f172a&color=fff&size=300" }
+        { id: 3, name: "Tushar", role: "General Secretary", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731231/Team/Tushar.jpg" },
+        { id: 4, name: "Sonali", role: "Finance Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731230/Team/Sonali.jpg" }
     ],
     [
-        { id: 5, name: "Ragini", role: "Social Media Head", img: "https://ui-avatars.com/api/?name=Ragini&background=0f172a&color=fff&size=300" },
-        { id: 6, name: "Abhishek", role: "Spokesperson", img: "https://ui-avatars.com/api/?name=Abhishek&background=0f172a&color=fff&size=300" }
+        { id: 5, name: "Ragini", role: "Social Media Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731229/Team/Ragini_Gupta.jpg" },
+        { id: 6, name: "Abhishek", role: "Spokesperson", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Abhishek.jpg" }
     ],
     [
-        { id: 7, name: "Shubhangi", role: "Designing Head", img: "https://ui-avatars.com/api/?name=Shubhangi&background=0f172a&color=fff&size=300" },
+        { id: 7, name: "Shubhangi", role: "Designing Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731231/Team/Shubhangi_Kumari.jpg" },
         { id: 12, name: "Satendra Negi", role: "Advisor", img: "https://ui-avatars.com/api/?name=Satendra+Negi&background=a855f7&color=fff&size=300" }
     ],
     [
-        { id: 8, name: "Shivani", role: "Management Head", img: "https://ui-avatars.com/api/?name=Shivani&background=0f172a&color=fff&size=300" },
-        { id: 9, name: "Akarshan", role: "Management Co-Head", img: "https://ui-avatars.com/api/?name=Akarshan&background=0f172a&color=fff&size=300" }
+        { id: 8, name: "Shivani", role: "Management Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731231/Team/Shivani_negi.jpg" },
+        { id: 9, name: "Akarshan", role: "Management Co-Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Akarshan_BTech.jpg.jpg" }
     ],
     [
-        { id: 10, name: "Himanshu", role: "Technical Head", img: "https://ui-avatars.com/api/?name=Himanshu&background=0f172a&color=fff&size=300" },
-        { id: 11, name: "Angad", role: "Technical Co-Head", img: "https://ui-avatars.com/api/?name=Angad&background=0f172a&color=fff&size=300" }
+        { id: 10, name: "Himanshu", role: "Technical Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731228/Team/Himanshu_rawat.jpg.jpg" },
+        { id: 11, name: "Angad", role: "Technical Co-Head", img: "https://res.cloudinary.com/dmajc7wkx/image/upload/v1772731232/Team/Angad.jpg" }
     ]
 ];
 
