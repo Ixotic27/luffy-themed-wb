@@ -453,7 +453,7 @@ function Home() {
             <section className="nikka-section-wrapper">
                 {/* Background image + glass overlay — absolute behind everything */}
                 <picture className="nikka-bg-picture">
-                    <source media="(max-width: 900px)" srcSet="/assets/mobile%20nikka.png" />
+                    <source media="(max-width: 900px)" srcSet="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/mobile_nikka_j8cidh" />
                     <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/nikka_t8uh2s" alt="" aria-hidden="true" className="nikka-bg-img" loading="lazy" decoding="async" />
                 </picture>
                 <div className="nikka-bg-overlay"></div>

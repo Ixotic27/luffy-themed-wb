@@ -221,6 +221,12 @@ button {
   background-blend-mode: overlay;
 }
 
+@media (max-width: 900px) {
+  .bg-about {
+    background-attachment: scroll;
+  }
+}
+
 .bg-leaderboard {
   background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/leaderboard_mvqxyg');
   background-size: cover;
@@ -230,12 +236,13 @@ button {
 
 @media (max-width: 900px) {
   .bg-leaderboard {
-    background-image: url('/assets/mobile%20leaderboard.png');
+    background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/mobile_leaderboard_pmv53d');
+    background-attachment: scroll;
   }
 }
 
 .bg-events {
-  background-image: url('/assets/desktop%20events.jpeg');
+  background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/desktop_events_xo4uwl');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -245,7 +252,8 @@ button {
 
 @media (max-width: 900px) {
   .bg-events {
-    background-image: url('/assets/mobile%20events.png');
+    background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/mobile_events_wo1xuj');
+    background-attachment: scroll;
   }
 }
 
@@ -279,9 +287,10 @@ button {
 
 @media (max-width: 900px) {
   .bg-developers {
-    background-image: url('/assets/mobile%20marinefold.png');
-    background-size: contain;
+    background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/mobile_marinefold_ajaxct');
+    background-size: cover;
     background-position: top center;
+    background-attachment: scroll;
   }
 }
 
