@@ -308,7 +308,7 @@ function Home() {
                             <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/zoro_gpuj1x" alt="Team Size Card" className="event-card-img" loading="lazy" decoding="async" />
                             <div className="event-card-text">
                                 <span className="event-card-label">TEAM SIZE</span>
-                                <span className="event-card-value">2 – 4 Members</span>
+                                <span className="event-card-value">3 – 4 Members</span>
                             </div>
                         </div>
                         <div className="event-card-wrapper card-nami">
@@ -351,7 +351,7 @@ function Home() {
                         <div className="event-card cyan">
                             <span className="event-card-icon"><Users size={24} color="#00e5ff" /></span>
                             <span className="event-card-label">TEAM SIZE</span>
-                            <span className="event-card-value">2 – 4 Members</span>
+                            <span className="event-card-value">3 – 4 Members</span>
                         </div>
                         <div className="event-card cyan">
                             <span className="event-card-icon"><GraduationCap size={24} color="#00e5ff" /></span>
