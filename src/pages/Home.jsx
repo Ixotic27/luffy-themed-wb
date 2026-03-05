@@ -43,6 +43,14 @@ function Home() {
         'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/carousel-image-4_dliwfv'
     ];
 
+    // Preload all carousel images on mount to eliminate fetch delay on slide change
+    useEffect(() => {
+        carouselImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
+
     // Auto-advance Carousel
     useEffect(() => {
         const slideInterval = setInterval(() => {
@@ -228,7 +236,7 @@ function Home() {
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                                        transition={{ duration: 0.6, ease: "easeInOut" }}
                                         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }}
                                     />
                                 </AnimatePresence>
