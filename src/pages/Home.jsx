@@ -123,70 +123,68 @@ function Home() {
 
     return (
         <>
-            <div className="mobile-hero-bg">
-                {/* Intro Section */}
-                <section id="home" className="about-section slide-up" style={{ marginTop: '2rem' }}>
-                    <div className="about-text" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)', minWidth: 0 }}>
-                        <h1 className="about-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: '#ffffff', marginBottom: '0', wordBreak: 'break-word', lineHeight: '1.1' }}>HACK-<span className="op-font">O</span>-HOLIC 4.0</h1>
-                        <h2 className="about-title-secondary" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', color: '#ffffff', borderBottom: 'none', paddingBottom: 0, wordBreak: 'break-word' }}>P<span className="op-font">I</span>RATE K<span className="op-font">I</span>NG'S CHALLENGE</h2>
+            {/* Intro Section */}
+            <section id="home" className="about-section slide-up" style={{ marginTop: '2rem' }}>
+                <div className="about-text" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)', minWidth: 0 }}>
+                    <h1 className="about-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: '#ffffff', marginBottom: '0', wordBreak: 'break-word', lineHeight: '1.1' }}>HACK-<span className="op-font">O</span>-HOLIC 4.0</h1>
+                    <h2 className="about-title-secondary" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', color: '#ffffff', borderBottom: 'none', paddingBottom: 0, wordBreak: 'break-word' }}>P<span className="op-font">I</span>RATE K<span className="op-font">I</span>NG'S CHALLENGE</h2>
 
-                        <p className="about-desc" style={{ fontSize: '1.5rem', color: '#e2e8f0', marginTop: '1.5rem' }}>
-                            Set Sail for the Ultimate One Piece Themed Hackathon!<br />
-                            Code, Create, and Conquer!
-                        </p>
+                    <p className="about-desc" style={{ fontSize: '1.5rem', color: '#e2e8f0', marginTop: '1.5rem' }}>
+                        Set Sail for the Ultimate One Piece Themed Hackathon!<br />
+                        Code, Create, and Conquer!
+                    </p>
+                </div>
+
+                <div className="about-image">
+                    <div className="pirate-manga-panel">
+                        <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_thumbs_up_uqxtnq" alt="Luffy Thumbs Up" />
+                        <div className="panel-caption">Setting sail on the digital Grand Line</div>
                     </div>
+                </div>
+            </section>
 
-                    <div className="about-image">
-                        <div className="pirate-manga-panel">
-                            <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_thumbs_up_uqxtnq" alt="Luffy Thumbs Up" />
-                            <div className="panel-caption">Setting sail on the digital Grand Line</div>
-                        </div>
+            {/* Countdown & Description Section */}
+            <section id="mission" className="countdown-section">
+                <h2 className="about-title" style={{ fontSize: '4rem', color: '#ffffff', marginBottom: '2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>CHALLENGE BEGINS IN:</h2>
+
+                <div className="custom-countdown-container" style={{ flexWrap: 'nowrap', overflowX: 'auto' }}>
+                    <div className="countdown-box">
+                        <span className="box-digit">{timeLeft.days}</span>
+                        <span className="box-label">DAYS</span>
                     </div>
-                </section>
-
-                {/* Countdown & Description Section */}
-                <section id="mission" className="countdown-section">
-                    <h2 className="about-title" style={{ fontSize: '4rem', color: '#ffffff', marginBottom: '2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>CHALLENGE BEGINS IN:</h2>
-
-                    <div className="custom-countdown-container" style={{ flexWrap: 'nowrap', overflowX: 'auto' }}>
-                        <div className="countdown-box">
-                            <span className="box-digit">{timeLeft.days}</span>
-                            <span className="box-label">DAYS</span>
-                        </div>
-                        <span className="countdown-colon">:</span>
-                        <div className="countdown-box">
-                            <span className="box-digit">{timeLeft.hours}</span>
-                            <span className="box-label">HOURS</span>
-                        </div>
-                        <span className="countdown-colon">:</span>
-                        <div className="countdown-box">
-                            <span className="box-digit">{timeLeft.minutes}</span>
-                            <span className="box-label">MINUTES</span>
-                        </div>
-                        <span className="countdown-colon">:</span>
-                        <div className="countdown-box">
-                            <span className="box-digit">{timeLeft.seconds}</span>
-                            <span className="box-label">SECONDS</span>
-                        </div>
+                    <span className="countdown-colon">:</span>
+                    <div className="countdown-box">
+                        <span className="box-digit">{timeLeft.hours}</span>
+                        <span className="box-label">HOURS</span>
                     </div>
-
-                    <div className="description-container" style={{ maxWidth: '800px', marginTop: 'calc(4rem - 20px)' }}>
-                        <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/description_no8zhs" alt="Hackathon Description Details" className="description-img" loading="lazy" decoding="async" />
-                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
-                            <Link
-                                to="/register"
-                                style={{ display: 'inline-block', transition: 'transform 0.3s ease', cursor: 'pointer', backgroundColor: '#ffffff', padding: '0.4rem', borderRadius: '8px', textDecoration: 'none' }}
-                                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                            >
-                                <div style={{ border: '2px solid #1e40af', padding: '0.2rem', borderRadius: '4px', backgroundColor: '#ffffff' }}>
-                                    <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/register_jmkwc7" alt="Register Now" style={{ width: '100%', maxWidth: '350px', height: 'auto', display: 'block' }} loading="lazy" decoding="async" />
-                                </div>
-                            </Link>
-                        </div>
+                    <span className="countdown-colon">:</span>
+                    <div className="countdown-box">
+                        <span className="box-digit">{timeLeft.minutes}</span>
+                        <span className="box-label">MINUTES</span>
                     </div>
-                </section>
-            </div>
+                    <span className="countdown-colon">:</span>
+                    <div className="countdown-box">
+                        <span className="box-digit">{timeLeft.seconds}</span>
+                        <span className="box-label">SECONDS</span>
+                    </div>
+                </div>
+
+                <div className="description-container" style={{ maxWidth: '800px', marginTop: 'calc(4rem - 20px)' }}>
+                    <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/description_no8zhs" alt="Hackathon Description Details" className="description-img" loading="lazy" decoding="async" />
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
+                        <Link
+                            to="/register"
+                            style={{ display: 'inline-block', transition: 'transform 0.3s ease', cursor: 'pointer', backgroundColor: '#ffffff', padding: '0.4rem', borderRadius: '8px', textDecoration: 'none' }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        >
+                            <div style={{ border: '2px solid #1e40af', padding: '0.2rem', borderRadius: '4px', backgroundColor: '#ffffff' }}>
+                                <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/register_jmkwc7" alt="Register Now" style={{ width: '100%', maxWidth: '350px', height: 'auto', display: 'block' }} loading="lazy" decoding="async" />
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </section>
 
             {/* home-artwork-bg.jpg Page Layout Section */}
             <section style={{ width: '100%', backgroundColor: '#0f172a', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
@@ -283,10 +281,10 @@ function Home() {
 
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Event Details Section */}
-            <section className="event-details-section">
+            < section className="event-details-section" >
                 <div className="event-details-bg">
                     <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/going-merry-bg_xga6uh" alt="Going Merry Ship" className="event-details-ship event-ship-desktop" loading="lazy" decoding="async" />
                     <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/mobile3_atuahk" alt="Going Merry Ship Mobile" className="event-details-ship event-ship-mobile" loading="lazy" decoding="async" />
@@ -377,10 +375,10 @@ function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* New Section for bright-bg.png - Natural aspect ratio with Overlay Text and Background effect */}
-            <section id="road-to-laughtale" className="new-section-4" style={{
+            < section id="road-to-laughtale" className="new-section-4" style={{
                 width: '100%',
                 position: 'relative',
                 backgroundColor: '#000',
@@ -393,11 +391,11 @@ function Home() {
                 padding: '5rem 1rem 6rem 1rem'
             }}>
                 {/* Dark overlay */}
-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 0 }}></div>
+                < div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 0 }}></div >
                 {/* Top fade — blends from going-merry-bg.jpeg section */}
-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
+                < div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div >
                 {/* Bottom fade — blends into nikka.jpeg */}
-                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
+                < div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div >
 
                 <div style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h1 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#ffb300', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '4rem' }}>
@@ -456,15 +454,15 @@ function Home() {
 
                 {/* Smooth Fade Transition blending the bottom of the map into the next section */}
                 <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '250px', background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
-            </section>
+            </section >
 
             {/* New Section for nikka.jpeg - Background is absolute, content is in-flow */}
-            <section className="nikka-section-wrapper">
+            < section className="nikka-section-wrapper" >
                 {/* Background image + glass overlay — absolute behind everything */}
-                <picture className="nikka-bg-picture">
+                < picture className="nikka-bg-picture" >
                     <source media="(max-width: 900px)" srcSet="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/mobile_nikka_j8cidh" />
                     <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/nikka_t8uh2s" alt="" aria-hidden="true" className="nikka-bg-img" loading="lazy" decoding="async" />
-                </picture>
+                </picture >
                 <div className="nikka-bg-overlay"></div>
 
                 {/* Smooth top fade from previous section — reduced to avoid heavy black bleed */}
@@ -506,249 +504,251 @@ function Home() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* ===== Manga Panel Mosaic Scroller ===== */}
-            {(() => {
-                const row1 = [
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Luffy_r9gnrp',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/one_piece_manga_vjriqt',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_nausq0',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_1_fdhski',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_2_xj5egc',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_3_rigbuy',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_4_lqf4my',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/26ff1d71915a78bd30b6d9b24bb6c994_rdj2ko',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/gear2_i30q7e',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/50d48b2918f1cb1459bd32c7a9666ede_vw9chb',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/pxb79lykluxell8obvzg',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/wwdrta2nsrscskego3kx',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/bnfbv0t7rnrsmsixnhg8',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/l3qjaj3la2vceuzvffhh',
-                ];
-                const row2 = [
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_5_q7d3s9',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_6_e9bohg',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_7_jrp2n2',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_8_bp7wwn',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_9_dprw6p',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_10_qqthhc',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/p1_abdoxf',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/one_piece-_monkey_d__luffy_mpcacs',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/f0c83cbbb913934694c5990734c6e0a9_lxlyj8',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/loki_first_appearance_oxqxqu',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_gear_5_brblaj',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/wijsk7nassyu0uivxgsm',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/jov19lxotlrknrysriir',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/a9c4ny621xsubcdzhoos',
-                ];
-                const row3 = [
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_11_ke2kiw',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_12_dxouex',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_13_kkr3cp',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_14_iyd31s',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/onepiece____manga____story____nakama____pirates____anime____king_of_pirates____story____chapter____sshzt0',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/bipskiug3v4n4rwhjewl',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Screenshot_2026-03-02_162330_isyoxw',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Screenshot_2026-03-02_163205_x10huk',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/whats-your-favorite-one-piece-manga-panel-v0-pfvg890ojfbf1_d00slq',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/whitebeard_vs_marine_qg4ofl',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/wp11456620_syoitc',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/drop-the-coolest-looking-op-manga-panel-artistically-v0-r37rr45eee4f1_qte4wn',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/fumem1vy6szrbfm4ckmz',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/ryrpwdrp9ehr9jrgexor',
-                    'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/sudunzlfwxwm478cef88',
-                ];
+            {
+                (() => {
+                    const row1 = [
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Luffy_r9gnrp',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/one_piece_manga_vjriqt',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_nausq0',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_1_fdhski',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_2_xj5egc',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_3_rigbuy',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_4_lqf4my',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/26ff1d71915a78bd30b6d9b24bb6c994_rdj2ko',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/gear2_i30q7e',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/50d48b2918f1cb1459bd32c7a9666ede_vw9chb',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/pxb79lykluxell8obvzg',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/wwdrta2nsrscskego3kx',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/bnfbv0t7rnrsmsixnhg8',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/l3qjaj3la2vceuzvffhh',
+                    ];
+                    const row2 = [
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_5_q7d3s9',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_6_e9bohg',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_7_jrp2n2',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_8_bp7wwn',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_9_dprw6p',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_10_qqthhc',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/p1_abdoxf',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/one_piece-_monkey_d__luffy_mpcacs',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/f0c83cbbb913934694c5990734c6e0a9_lxlyj8',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/loki_first_appearance_oxqxqu',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_gear_5_brblaj',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/wijsk7nassyu0uivxgsm',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/jov19lxotlrknrysriir',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/a9c4ny621xsubcdzhoos',
+                    ];
+                    const row3 = [
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_11_ke2kiw',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_12_dxouex',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_13_kkr3cp',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/download_14_iyd31s',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/onepiece____manga____story____nakama____pirates____anime____king_of_pirates____story____chapter____sshzt0',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/bipskiug3v4n4rwhjewl',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Screenshot_2026-03-02_162330_isyoxw',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Screenshot_2026-03-02_163205_x10huk',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/whats-your-favorite-one-piece-manga-panel-v0-pfvg890ojfbf1_d00slq',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/whitebeard_vs_marine_qg4ofl',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/wp11456620_syoitc',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/drop-the-coolest-looking-op-manga-panel-artistically-v0-r37rr45eee4f1_qte4wn',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/fumem1vy6szrbfm4ckmz',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/ryrpwdrp9ehr9jrgexor',
+                        'https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/Hack O Holic 4.0/new manga panels/sudunzlfwxwm478cef88',
+                    ];
 
-                return (
-                    <>
-                        {/* ===== gallery-bg.png Gallery Section (Matches structure of mobile 4/nikka) ===== */}
-                        <section id="gallery" className="nikka-section-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '12rem 1rem 4rem 1rem' }}>
-                            {/* Background image + glass overlay — absolute behind everything */}
-                            <picture className="nikka-bg-picture">
-                                <source media="(max-width: 900px)" srcSet="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/gallery-bg_zxkxho" />
-                                <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/gallery-bg_zxkxho" alt="" aria-hidden="true" className="nikka-bg-img" style={{ objectPosition: 'center -100px' }} loading="lazy" decoding="async" />
-                            </picture>
+                    return (
+                        <>
+                            {/* ===== gallery-bg.png Gallery Section (Matches structure of mobile 4/nikka) ===== */}
+                            <section id="gallery" className="nikka-section-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '12rem 1rem 4rem 1rem' }}>
+                                {/* Background image + glass overlay — absolute behind everything */}
+                                <picture className="nikka-bg-picture">
+                                    <source media="(max-width: 900px)" srcSet="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/gallery-bg_zxkxho" />
+                                    <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/gallery-bg_zxkxho" alt="" aria-hidden="true" className="nikka-bg-img" style={{ objectPosition: 'center -100px' }} loading="lazy" decoding="async" />
+                                </picture>
 
-                            {/* Smooth top fade transition bridging from the previous section into gallery-bg.png */}
-                            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '300px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
+                                {/* Smooth top fade transition bridging from the previous section into gallery-bg.png */}
+                                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '300px', background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
 
-                            {/* Glass Effect Overlay */}
-                            <div style={{
-                                position: 'absolute',
-                                top: 0, left: 0, width: '100%', height: '100%',
-                                backgroundColor: 'rgba(15, 23, 42, 0.4)',
-                                backdropFilter: 'blur(8px)',
-                                WebkitBackdropFilter: 'blur(8px)',
-                                zIndex: 1
-                            }}></div>
-
-                            <div style={{ position: 'relative', zIndex: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#ffb300', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '1rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
-                                    THE CR<span className="op-font">E</span>W'S J<span className="op-font">O</span>URNAL
-                                </h2>
-                                <p style={{ color: '#fff', fontSize: '1.2rem', fontFamily: "'Inter', sans-serif", marginBottom: '3rem', textAlign: 'center', textShadow: '1px 1px 2px #000' }}>
-                                    Reliving the legendary voyages of past Hack-O-Holic crews
-                                </p>
-
-                                {/* 12-Picture Gallery View */}
+                                {/* Glass Effect Overlay */}
                                 <div style={{
-                                    width: '100%',
-                                    maxWidth: '800px',
-                                    height: '400px',
-                                    position: 'relative',
-                                    borderRadius: '16px',
-                                    overflow: 'hidden',
-                                    border: '2px solid rgba(255,179,0,0.3)',
-                                    boxShadow: '0 20px 40px rgba(0,0,0,0.6)'
-                                }}>
-                                    <AnimatePresence mode="popLayout">
-                                        <motion.img
-                                            key={galleryIndex}
-                                            src={galleryImages[galleryIndex]}
-                                            initial={{ x: 300, opacity: 0 }}
-                                            animate={{ x: 0, opacity: 1 }}
-                                            exit={{ x: -300, opacity: 0 }}
-                                            transition={{ type: "spring", stiffness: 300, damping: 30, opacity: { duration: 0.2 } }}
-                                            style={{
-                                                position: 'absolute',
-                                                top: 0, left: 0,
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover'
-                                            }}
-                                            alt={`Gallery Image ${galleryIndex + 1}`}
-                                        />
-                                    </AnimatePresence>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* ===== FAQ Window Section ===== */}
-                        <section id="faqs" style={{
-                            width: '100%',
-                            backgroundColor: '#0d1117',
-                            padding: '6rem 2rem',
-                            position: 'relative',
-                            zIndex: 10,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center'
-                        }}>
-                            <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#d4a843', textShadow: '2px 2px 4px rgba(0,0,0,0.5)', marginBottom: '4rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
-                                    <span className="op-font">F</span>REQ<span className="op-font">U</span>ENTLY <span className="op-font">A</span>SKED Q<span className="op-font">U</span>ESTIONS
-                                </h2>
-
-                                <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                                    {[
-                                        { q: "What is Hack-O-Holic 4.0?", a: "A 24-hour One Piece-themed hackathon bringing together developers and innovators to build incredible projects." },
-                                        { q: "Who can participate?", a: "Graphic Era Hill University students! You can participate in teams of 2 to 4 members." },
-                                        { q: "Is it an online or offline event?", a: "It is a completely offline, on-campus event in Graphic Era Hill University, Dehradun." },
-                                        { q: "What should I bring?", a: "Bring your laptop, charger, student ID, any hardware you might need, and your adventurous pirate spirit!" }
-                                    ].map((faq, i) => (
-                                        <div key={i} style={{
-                                            background: 'rgba(255, 255, 255, 0.03)',
-                                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                                            borderRadius: '12px',
-                                            padding: '1.5rem 2rem',
-                                            transition: 'transform 0.3s ease, background 0.3s ease',
-                                            cursor: 'pointer'
-                                        }}
-                                            onMouseEnter={(e) => {
-                                                e.currentTarget.style.transform = 'translateY(-2px)';
-                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.currentTarget.style.transform = 'none';
-                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                                            }}>
-                                            <h3 style={{ color: '#fff', fontSize: '1.25rem', marginBottom: '0.75rem', fontFamily: "'Inter', sans-serif", fontWeight: '600' }}>
-                                                <span style={{ color: '#ffb300', marginRight: '0.5rem' }}>Q.</span>{faq.q}
-                                            </h3>
-                                            <p style={{ color: '#9ca3af', fontSize: '1rem', lineHeight: '1.6', fontFamily: "'Inter', sans-serif" }}>
-                                                {faq.a}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Luffy peeking from the right middle */}
-                            <img
-                                src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_peeking_vuvq7k"
-                                alt="Luffy Peeking"
-                                className="luffy-faq-peek"
-                                style={{
                                     position: 'absolute',
-                                    top: '50%',
-                                    right: '1.5rem',
-                                    transform: 'translateY(-50%)',
-                                    objectFit: 'contain',
-                                    zIndex: 20,
-                                    pointerEvents: 'none',
-                                    filter: 'drop-shadow(0 0 12px rgba(0,0,0,0.6))'
-                                }}
-                            />
-                        </section>
+                                    top: 0, left: 0, width: '100%', height: '100%',
+                                    backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                                    backdropFilter: 'blur(8px)',
+                                    WebkitBackdropFilter: 'blur(8px)',
+                                    zIndex: 1
+                                }}></div>
 
-                        <section className="manga-mosaic-section">
-                            <div className="manga-mosaic-overlay">
-                                {/* Inner Flex Container for Overlay UI */}
-                                <div className="manga-mosaicui">
-                                    {/* Row 1: skull icon + text */}
-                                    <div className="manga-mosaicui-row1" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                                        <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/strawhat_skull_aegbju" alt="Strawhat Skull" className="manga-skull" style={{ marginBottom: '1rem' }} loading="lazy" decoding="async" />
-                                        <span style={{ fontSize: '2.5rem', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '4px', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>ONE PIECE</span>
-                                        <div className="manga-mosaic-text-wrapper" style={{ marginTop: '0.5rem' }}>
-                                            <p className='manga-mosaicui-desc' style={{ textAlign: 'center' }}>want to join the exciting adventure with us</p>
+                                <div style={{ position: 'relative', zIndex: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#ffb300', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '1rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
+                                        THE CR<span className="op-font">E</span>W'S J<span className="op-font">O</span>URNAL
+                                    </h2>
+                                    <p style={{ color: '#fff', fontSize: '1.2rem', fontFamily: "'Inter', sans-serif", marginBottom: '3rem', textAlign: 'center', textShadow: '1px 1px 2px #000' }}>
+                                        Reliving the legendary voyages of past Hack-O-Holic crews
+                                    </p>
+
+                                    {/* 12-Picture Gallery View */}
+                                    <div style={{
+                                        width: '100%',
+                                        maxWidth: '800px',
+                                        height: '400px',
+                                        position: 'relative',
+                                        borderRadius: '16px',
+                                        overflow: 'hidden',
+                                        border: '2px solid rgba(255,179,0,0.3)',
+                                        boxShadow: '0 20px 40px rgba(0,0,0,0.6)'
+                                    }}>
+                                        <AnimatePresence mode="popLayout">
+                                            <motion.img
+                                                key={galleryIndex}
+                                                src={galleryImages[galleryIndex]}
+                                                initial={{ x: 300, opacity: 0 }}
+                                                animate={{ x: 0, opacity: 1 }}
+                                                exit={{ x: -300, opacity: 0 }}
+                                                transition={{ type: "spring", stiffness: 300, damping: 30, opacity: { duration: 0.2 } }}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0, left: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                                alt={`Gallery Image ${galleryIndex + 1}`}
+                                            />
+                                        </AnimatePresence>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* ===== FAQ Window Section ===== */}
+                            <section id="faqs" style={{
+                                width: '100%',
+                                backgroundColor: '#0d1117',
+                                padding: '6rem 2rem',
+                                position: 'relative',
+                                zIndex: 10,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center'
+                            }}>
+                                <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <h2 className="about-title text-center" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#d4a843', textShadow: '2px 2px 4px rgba(0,0,0,0.5)', marginBottom: '4rem', fontFamily: "'Bebas Neue', cursive, sans-serif", letterSpacing: '2px' }}>
+                                        <span className="op-font">F</span>REQ<span className="op-font">U</span>ENTLY <span className="op-font">A</span>SKED Q<span className="op-font">U</span>ESTIONS
+                                    </h2>
+
+                                    <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                                        {[
+                                            { q: "What is Hack-O-Holic 4.0?", a: "A 24-hour One Piece-themed hackathon bringing together developers and innovators to build incredible projects." },
+                                            { q: "Who can participate?", a: "Graphic Era Hill University students! You can participate in teams of 2 to 4 members." },
+                                            { q: "Is it an online or offline event?", a: "It is a completely offline, on-campus event in Graphic Era Hill University, Dehradun." },
+                                            { q: "What should I bring?", a: "Bring your laptop, charger, student ID, any hardware you might need, and your adventurous pirate spirit!" }
+                                        ].map((faq, i) => (
+                                            <div key={i} style={{
+                                                background: 'rgba(255, 255, 255, 0.03)',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                                borderRadius: '12px',
+                                                padding: '1.5rem 2rem',
+                                                transition: 'transform 0.3s ease, background 0.3s ease',
+                                                cursor: 'pointer'
+                                            }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.transform = 'translateY(-2px)';
+                                                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.transform = 'none';
+                                                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                                                }}>
+                                                <h3 style={{ color: '#fff', fontSize: '1.25rem', marginBottom: '0.75rem', fontFamily: "'Inter', sans-serif", fontWeight: '600' }}>
+                                                    <span style={{ color: '#ffb300', marginRight: '0.5rem' }}>Q.</span>{faq.q}
+                                                </h3>
+                                                <p style={{ color: '#9ca3af', fontSize: '1rem', lineHeight: '1.6', fontFamily: "'Inter', sans-serif" }}>
+                                                    {faq.a}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Luffy peeking from the right middle */}
+                                <img
+                                    src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_peeking_vuvq7k"
+                                    alt="Luffy Peeking"
+                                    className="luffy-faq-peek"
+                                    style={{
+                                        position: 'absolute',
+                                        top: '50%',
+                                        right: '1.5rem',
+                                        transform: 'translateY(-50%)',
+                                        objectFit: 'contain',
+                                        zIndex: 20,
+                                        pointerEvents: 'none',
+                                        filter: 'drop-shadow(0 0 12px rgba(0,0,0,0.6))'
+                                    }}
+                                />
+                            </section>
+
+                            <section className="manga-mosaic-section">
+                                <div className="manga-mosaic-overlay">
+                                    {/* Inner Flex Container for Overlay UI */}
+                                    <div className="manga-mosaicui">
+                                        {/* Row 1: skull icon + text */}
+                                        <div className="manga-mosaicui-row1" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                                            <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/strawhat_skull_aegbju" alt="Strawhat Skull" className="manga-skull" style={{ marginBottom: '1rem' }} loading="lazy" decoding="async" />
+                                            <span style={{ fontSize: '2.5rem', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '4px', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>ONE PIECE</span>
+                                            <div className="manga-mosaic-text-wrapper" style={{ marginTop: '0.5rem' }}>
+                                                <p className='manga-mosaicui-desc' style={{ textAlign: 'center' }}>want to join the exciting adventure with us</p>
+                                            </div>
+                                        </div>
+
+                                        {/* Row 2: register button, centered */}
+                                        <div className="manga-mosaicui-row2">
+                                            <Link to="/register" className='manga-mosaicui-btn' style={{ textDecoration: 'none' }}>
+                                                <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_hat_fjp7ze" alt="Luffy Hat" style={{ background: 'transparent' }} />
+                                                <span>Register Now</span>
+                                                <i>&gt;</i>
+                                            </Link>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div className="manga-mosaic-inner">
+                                    {/* Row 1 */}
+                                    <div className="manga-row">
+                                        <div className="manga-track">
+                                            {[...row1, ...row1, ...row1].map((src, i) => (
+                                                <img key={`r1-${i}`} src={src} alt="" className="manga-panel" />
+                                            ))}
                                         </div>
                                     </div>
 
-                                    {/* Row 2: register button, centered */}
-                                    <div className="manga-mosaicui-row2">
-                                        <Link to="/register" className='manga-mosaicui-btn' style={{ textDecoration: 'none' }}>
-                                            <img src="https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_hat_fjp7ze" alt="Luffy Hat" style={{ background: 'transparent' }} />
-                                            <span>Register Now</span>
-                                            <i>&gt;</i>
-                                        </Link>
+                                    {/* Row 2 */}
+                                    <div className="manga-row">
+                                        <div className="manga-track manga-track-fast">
+                                            {[...row2, ...row2, ...row2].map((src, i) => (
+                                                <img key={`r2-${i}`} src={src} alt="" className="manga-panel" />
+                                            ))}
+                                        </div>
                                     </div>
 
-                                </div>
-                            </div>
-
-                            <div className="manga-mosaic-inner">
-                                {/* Row 1 */}
-                                <div className="manga-row">
-                                    <div className="manga-track">
-                                        {[...row1, ...row1, ...row1].map((src, i) => (
-                                            <img key={`r1-${i}`} src={src} alt="" className="manga-panel" />
-                                        ))}
+                                    {/* Row 3 */}
+                                    <div className="manga-row">
+                                        <div className="manga-track manga-track-slow">
+                                            {[...row3, ...row3, ...row3].map((src, i) => (
+                                                <img key={`r3-${i}`} src={src} alt="" className="manga-panel" />
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* Row 2 */}
-                                <div className="manga-row">
-                                    <div className="manga-track manga-track-fast">
-                                        {[...row2, ...row2, ...row2].map((src, i) => (
-                                            <img key={`r2-${i}`} src={src} alt="" className="manga-panel" />
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Row 3 */}
-                                <div className="manga-row">
-                                    <div className="manga-track manga-track-slow">
-                                        {[...row3, ...row3, ...row3].map((src, i) => (
-                                            <img key={`r3-${i}`} src={src} alt="" className="manga-panel" />
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </>
-                );
-            })()}
+                            </section>
+                        </>
+                    );
+                })()
+            }
         </>
     );
 }

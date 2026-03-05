@@ -204,7 +204,7 @@ button {
 }
 
 .bg-home {
-  background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/luffy_second_st1o4n');
+  background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/luffy_second_st1o4n');
   background-size: cover;
   background-position: center bottom;
   background-attachment: fixed;
@@ -213,20 +213,12 @@ button {
 }
 
 @media (max-width: 900px) {
-  .bg-home-mobile-disabled {
-    background-image: none !important;
-    background-color: #0f172a !important;
-    /* matches underlying dark thematic color */
-  }
-
-  .mobile-hero-bg {
-    background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/luffy_second_st1o4n');
-    background-size: cover;
-    background-position: center top;
+  .bg-home {
     background-attachment: scroll;
-    width: 100%;
   }
 }
+
+
 
 .bg-about {
   background-image: url('https://res.cloudinary.com/dmajc7wkx/image/upload/q_auto,f_auto/bright-bg_xocrgu');
