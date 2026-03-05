@@ -38,7 +38,7 @@ function Home() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const carouselImages = [
         '/assets/carousel-image-1.jpg',
-        '/assets/carousel-image-home-artwork-bg.jpg',
+        '/assets/carousel-image-2.jpg',
         '/assets/carousel-image-3.jpg',
         '/assets/carousel-image-4.jpg'
     ];
@@ -56,7 +56,7 @@ function Home() {
     const galleryImages = [
         '/assets/gallery pictures/g1.jpeg',
         '/assets/gallery pictures/g2.jpeg',
-        '/assets/gallery pictures/ggoing-merry-bg.jpeg',
+        '/assets/gallery pictures/g3.jpeg',
         '/assets/gallery pictures/g4.jpeg',
         '/assets/gallery pictures/g5.jpeg',
         '/assets/gallery pictures/g6.jpeg',
@@ -494,7 +494,7 @@ function Home() {
                     '/assets/MangaPanels/26ff1d71915a78bd30b6d9b24bb6c994.jpg',
                     '/assets/MangaPanels/gear2.webp',
                     '/assets/MangaPanels/50d48b2918f1cb1459bd32c7a9666ede.webp',
-                    '/assets/MangaPanels/82ff9dc98dcd492fd7024f808d6f6436.webp',
+                    '/assets/MangaPanels/Screenshot 2026-03-02 164303.png',
                 ];
                 const row2 = [
                     '/assets/MangaPanels/download (5).jpg',

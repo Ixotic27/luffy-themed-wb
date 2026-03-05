@@ -1541,7 +1541,8 @@ button {
 
 @media (max-width: 900px) {
   .new-section-4 {
-    background-image: url('/assets/mobile%20bright-bg.png');
+    background-image: url('/assets/mobile-bright-bg.png');
+    height: 60vh;
   }
 
   .event-flow-wrapper {
