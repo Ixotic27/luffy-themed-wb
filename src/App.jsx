@@ -194,12 +194,12 @@ function App() {
 
                       <div className="contact-item">
                         <Mail size={20} />
-                        <span>Hackaholic4.0.codev@gmail.com</span>
+                        <span>Hackoholic4.0@gmail.com</span>
                       </div>
 
                       <div className="contact-item phones">
                         <Phone size={20} />
-                        <span>+91 7464959260 &nbsp; +91 7818874934<br />+91 8191013531</span>
+                        <span>+91 90680 98724 &nbsp; +91 78188 74934<br />+91 81910 13531</span>
                       </div>
 
                       <div className="contact-item">
