@@ -83,6 +83,16 @@ function Home() {
         return () => clearInterval(galleryInterval);
     }, [galleryImages.length]);
 
+    // Preload all gallery images on mount to eliminate fetch delay on slide change
+    useEffect(() => {
+        galleryImages.forEach((src, i) => {
+            setTimeout(() => {
+                const img = new Image();
+                img.src = src;
+            }, i * 200); // stagger by 200ms each so we don't hammer the network
+        });
+    }, []);
+
     useEffect(() => {
         const targetDate = new Date('March 28, 2026 00:00:00').getTime();
 
